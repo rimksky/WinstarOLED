@@ -27,7 +27,7 @@ void setRandomData() {
   }
 }
 
-void clearDisplayData() {
+void clearData() {
   for (byte x = 0; x < SX; x++) {
     for (byte y = 0; y < SY; y++) {
       displayData[bufno][x][y] = 0;
@@ -35,7 +35,7 @@ void clearDisplayData() {
   }
 }
 
-void point(byte x, byte y) {
+void setPoint(byte x, byte y) {
   byte ax = x % SX;
   byte ay = ( y % ( SY * 8 ) ) / 8;
   byte by = ( y % ( SY * 8 ) ) % 8;
@@ -47,6 +47,14 @@ byte getPoint(byte bufno, byte x, byte y) {
   byte ay = (y % (SY * 8) ) / 8;
   byte by = (y % (SY * 8) ) % 8;
   return displayData[bufno][ax][ay] & (1 << by);
+}
+
+void nextData(){
+  for (byte x = 0; x < SX; x++) {
+    for (byte y = 0; y < SY*8; y++) {
+      if( getCount(x, y) ) setPoint(x, y);
+    }
+  }
 }
 
 void applyDisplay() {
@@ -67,15 +75,7 @@ void applyDisplay() {
   bufno = (bufno+1)%2;
 }
 
-void nextDisplayData(){
-  for (byte x = 0; x < SX; x++) {
-    for (byte y = 0; y < SY*8; y++) {
-      if( count(x, y) ) point(x, y);
-    }
-  }
-}
-
-byte count(byte x, byte y){
+byte getCount(byte x, byte y){
   byte preno = (bufno+1)%2;
   byte c = 0;
   byte ret = 0;
@@ -100,7 +100,7 @@ byte gen = 0;
 void loop() {
   gen++;
   digitalWrite(13, (byte) gen % 2 );
-  clearDisplayData();
-  nextDisplayData();
+  clearData();
+  nextData();
   applyDisplay();
 }
