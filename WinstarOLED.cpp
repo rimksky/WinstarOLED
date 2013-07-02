@@ -61,12 +61,12 @@ void WinstarOLED::setGraphicCursor( uint8_t x, uint8_t y ){
   }
 }
 
-void WinstarOLED::reset( unsigned delay = 2000 ){
+void WinstarOLED::reset( unsigned int delaytime ){
   pinMode(_pw_pin, OUTPUT);
   digitalWrite(_pw_pin, LOW);
-  delay(delay);
+  delay(delaytime);
   digitalWrite(_pw_pin, HIGH);
-  delay(delay);
+  delay(delaytime);
 }
 
 /*

@@ -28,7 +28,7 @@ public:
   void setGraphicMode();
   void setCharcterMode();
   void setGraphicCursor( uint8_t x, uint8_t y );
-  void reset();
+  void reset( unsigned int delaytime = 2000 );
 private:
   uint8_t _pw_pin;
   uint8_t _is_graphicmode;
