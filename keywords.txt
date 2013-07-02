@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For WinstarOLED
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+WinstarOLED         KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setGraphicMode      KEYWORD2
+setCharcterMode     KEYWORD2
+setGraphicCursor    KEYWORD2
+reset               KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+LCD_SETGRAPHICMODE     LITERAL1
+LCD_SETCHARCTERMODE    LITERAL1
