@@ -38,4 +38,4 @@ The following sample circuit shows the default pins for the library.
   D8 ------------------------------- DB4
 ```
 
-![](blob/master/examples/HelloWorld/HelloWorld.jpg?raw=true)
+![](examples/HelloWorld/HelloWorld.jpg?raw=true)
